@@ -18,7 +18,8 @@ class MathTeacher:
             'tangent': 'Tangent is a trigonometric function that relates the ratio of the length of the side opposite an angle to the length of the adjacent side in a right triangle.',
             'natural_logarithm': 'The natural logarithm is the logarithm to the base e, where e is an irrational and transcendental constant approximately equal to 2.71828.',
             'logarithm_base_10': 'The logarithm base 10 is the logarithm to the base 10, representing the exponent to which 10 must be raised to produce the given number.',
-            'memory': 'Memory is a feature that allows you to store a value for later use.'
+            'memory': 'Memory is a feature that allows you to store a value for later use.',
+            'factorial': 'Factorial is the product of an integer and all the integers below it; e.g., factorial four ( 4! ) is equal to 24.'
             # Add more explanations for other math topics as needed
         }
         return explanations.get(topic.lower(), "Sorry, I'm not familiar with that topic.")
@@ -72,6 +73,10 @@ class ScientificCalculator:
     def log10(self, num):
         """Base 10 Logarithm"""
         return np.log10(num), self.teacher.teach('logarithm_base_10')
+
+    def factorial(self, num):
+        """Factorial"""
+        return np.math.factorial(num), self.teacher.teach('factorial')
 
     def store_in_memory(self, value):
         """Store Value in Memory"""
@@ -138,6 +143,11 @@ print("Explanation:", explanation)
 # Logarithm Base 10
 result, explanation = calculator.log10(100)
 print("log10(100) =", result)
+print("Explanation:", explanation)
+
+# Factorial
+result, explanation = calculator.factorial(5)
+print("5! =", result)
 print("Explanation:", explanation)
 
 # Store value in memory
