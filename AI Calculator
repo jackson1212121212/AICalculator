@@ -1,0 +1,149 @@
+import numpy as np
+
+class MathTeacher:
+    def __init__(self):
+        self.memory = 0
+
+    def teach(self, topic):
+        """AI-based explanation of math topics"""
+        explanations = {
+            'addition': 'Addition is the operation of combining two or more numbers to find their total sum.',
+            'subtraction': 'Subtraction is the operation of taking one number away from another to find the difference.',
+            'multiplication': 'Multiplication is the operation of repeated addition, used to find the total of groups of equal size.',
+            'division': 'Division is the operation of separating a quantity into equal parts or groups to find how many are in each part.',
+            'exponentiation': 'Exponentiation is the operation of raising a base number to a given power.',
+            'square_root': 'The square root of a number is a value that, when multiplied by itself, gives the original number.',
+            'sine': 'Sine is a trigonometric function that relates the ratio of the length of the side opposite an angle to the length of the hypotenuse in a right triangle.',
+            'cosine': 'Cosine is a trigonometric function that relates the ratio of the length of the adjacent side to the length of the hypotenuse in a right triangle.',
+            'tangent': 'Tangent is a trigonometric function that relates the ratio of the length of the side opposite an angle to the length of the adjacent side in a right triangle.',
+            'natural_logarithm': 'The natural logarithm is the logarithm to the base e, where e is an irrational and transcendental constant approximately equal to 2.71828.',
+            'logarithm_base_10': 'The logarithm base 10 is the logarithm to the base 10, representing the exponent to which 10 must be raised to produce the given number.',
+            'memory': 'Memory is a feature that allows you to store a value for later use.'
+            # Add more explanations for other math topics as needed
+        }
+        return explanations.get(topic.lower(), "Sorry, I'm not familiar with that topic.")
+
+class ScientificCalculator:
+    def __init__(self):
+        self.teacher = MathTeacher()
+
+    def add(self, a, b):
+        """Addition"""
+        return a + b, self.teacher.teach('addition')
+
+    def subtract(self, a, b):
+        """Subtraction"""
+        return a - b, self.teacher.teach('subtraction')
+
+    def multiply(self, a, b):
+        """Multiplication"""
+        return a * b, self.teacher.teach('multiplication')
+
+    def divide(self, a, b):
+        """Division"""
+        if b == 0:
+            return "Error: Division by zero", "Error: Division by zero"
+        return a / b, self.teacher.teach('division')
+
+    def power(self, base, exponent):
+        """Exponentiation"""
+        return np.power(base, exponent), self.teacher.teach('exponentiation')
+
+    def square_root(self, num):
+        """Square Root"""
+        return np.sqrt(num), self.teacher.teach('square_root')
+
+    def sin(self, angle):
+        """Sine"""
+        return np.sin(np.radians(angle)), self.teacher.teach('sine')
+
+    def cos(self, angle):
+        """Cosine"""
+        return np.cos(np.radians(angle)), self.teacher.teach('cosine')
+
+    def tan(self, angle):
+        """Tangent"""
+        return np.tan(np.radians(angle)), self.teacher.teach('tangent')
+
+    def log(self, num):
+        """Natural Logarithm"""
+        return np.log(num), self.teacher.teach('natural_logarithm')
+
+    def log10(self, num):
+        """Base 10 Logarithm"""
+        return np.log10(num), self.teacher.teach('logarithm_base_10')
+
+    def store_in_memory(self, value):
+        """Store Value in Memory"""
+        self.memory = value
+        return f"Value {value} stored in memory."
+
+    def recall_memory(self):
+        """Recall Memory"""
+        return self.memory
+
+# Example usage
+calculator = ScientificCalculator()
+
+# Addition
+result, explanation = calculator.add(5, 3)
+print("5 + 3 =", result)
+print("Explanation:", explanation)
+
+# Subtraction
+result, explanation = calculator.subtract(5, 3)
+print("5 - 3 =", result)
+print("Explanation:", explanation)
+
+# Multiplication
+result, explanation = calculator.multiply(5, 3)
+print("5 * 3 =", result)
+print("Explanation:", explanation)
+
+# Division
+result, explanation = calculator.divide(5, 3)
+print("5 / 3 =", result)
+print("Explanation:", explanation)
+
+# Power
+result, explanation = calculator.power(2, 3)
+print("2 ^ 3 =", result)
+print("Explanation:", explanation)
+
+# Square Root
+result, explanation = calculator.square_root(16)
+print("√16 =", result)
+print("Explanation:", explanation)
+
+# Sine
+result, explanation = calculator.sin(30)
+print("sin(30°) =", result)
+print("Explanation:", explanation)
+
+# Cosine
+result, explanation = calculator.cos(60)
+print("cos(60°) =", result)
+print("Explanation:", explanation)
+
+# Tangent
+result, explanation = calculator.tan(45)
+print("tan(45°) =", result)
+print("Explanation:", explanation)
+
+# Natural Logarithm
+result, explanation = calculator.log(np.e)
+print("ln(e) =", result)
+print("Explanation:", explanation)
+
+# Logarithm Base 10
+result, explanation = calculator.log10(100)
+print("log10(100) =", result)
+print("Explanation:", explanation)
+
+# Store value in memory
+memory_msg = calculator.store_in_memory(42)
+print(memory_msg)
+
+# Recall value from memory
+memory_value = calculator.recall_memory()
+print("Recalled value from memory:", memory_value)
